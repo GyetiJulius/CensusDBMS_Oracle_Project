@@ -1,0 +1,195 @@
+SQL> @sql\sample_data\oracle_sample_data.sql
+Cleaning up existing data...
+Table FERTILITY truncated.
+Table DISABILITY truncated.
+Table ECONOMIC_ACTIVITY truncated.
+Table AGRICULTURAL_ACTIVITY truncated.
+Table MORTALITY truncated.
+Table EMIGRATION truncated.
+Table ICT_USAGE does not exist, skipping truncate.
+Table INDIVIDUAL truncated.
+Table HOUSING truncated.
+Table HOUSEHOLD truncated.
+Table GEOGRAPHICAL_INFO truncated.
+
+PL/SQL procedure successfully completed.
+
+Resetting sequences...
+
+PL/SQL procedure successfully completed.
+
+Inserting Geographical Information...
+INSERT INTO GEOGRAPHICAL_INFO (geographical_info_id, region_name, district_name, locality_name, enumeration_area_code) VALUES (seq_geo_info_id.NEXTVAL, 'Greater Accra', 'Accra Metropolis', 'Osu', 'GA-001-001')
+                               *
+ERROR at line 1:
+ORA-00904: "GEOGRAPHICAL_INFO_ID": invalid identifier
+Help: https://docs.oracle.com/error-help/db/ora-00904/
+
+
+INSERT INTO GEOGRAPHICAL_INFO (geographical_info_id, region_name, district_name, locality_name, enumeration_area_code) VALUES (seq_geo_info_id.NEXTVAL, 'Ashanti', 'Kumasi Metropolis', 'Adum', 'AS-001-001')
+                               *
+ERROR at line 1:
+ORA-00904: "GEOGRAPHICAL_INFO_ID": invalid identifier
+Help: https://docs.oracle.com/error-help/db/ora-00904/
+
+
+INSERT INTO GEOGRAPHICAL_INFO (geographical_info_id, region_name, district_name, locality_name, enumeration_area_code) VALUES (seq_geo_info_id.NEXTVAL, 'Western', 'Sekondi-Takoradi Metropolis', 'Takoradi', 'WR-001-001')
+                               *
+ERROR at line 1:
+ORA-00904: "GEOGRAPHICAL_INFO_ID": invalid identifier
+Help: https://docs.oracle.com/error-help/db/ora-00904/
+
+
+Inserting Households and all related data...
+    SELECT geographical_info_id INTO v_geo_id_1 FROM GEOGRAPHICAL_INFO WHERE enumeration_area_code = 'GA-001-001';
+           *
+ERROR at line 9:
+ORA-06550: line 9, column 12:
+PL/SQL: ORA-00904: "GEOGRAPHICAL_INFO_ID": invalid identifier
+ORA-06550: line 9, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 10, column 12:
+PL/SQL: ORA-00904: "GEOGRAPHICAL_INFO_ID": invalid identifier
+ORA-06550: line 10, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 11, column 12:
+PL/SQL: ORA-00904: "GEOGRAPHICAL_INFO_ID": invalid identifier
+ORA-06550: line 11, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 15, column 64:
+PL/SQL: ORA-00904: "HOUSEHOLD_NUMBER": invalid identifier
+ORA-06550: line 15, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 17, column 73:
+PL/SQL: ORA-00904: "MAIN_CONSTRUCTION_MATERIAL_WALL": invalid identifier
+ORA-06550: line 17, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 22, column 83:
+PL/SQL: ORA-00904: "MAIN_OCCUPATION": invalid identifier
+ORA-06550: line 22, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 26, column 83:
+PL/SQL: ORA-00904: "MAIN_OCCUPATION": invalid identifier
+ORA-06550: line 26, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 28, column 83:
+PL/SQL: ORA-00904: "CHILDREN_SURVIVING_TOTAL": invalid identifier
+ORA-06550: line 28, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 31, column 64:
+PL/SQL: ORA-00904: "HOUSEHOLD_NUMBER": invalid identifier
+ORA-06550: line 31, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 32, column 73:
+PL/SQL: ORA-00904: "MAIN_CONSTRUCTION_MATERIAL_WALL": invalid identifier
+ORA-06550: line 32, column 5:
+PL/SQL: SQL Statement ignored
+Help: https://docs.oracle.com/error-help/db/ora-06550/
+
+
+
+Commit complete.
+
+
+Sample Data Insertion Summary:
+--------------------------------------- SELECT 'Geographical Info' AS table_name, COUNT(*) AS record_count FROM GEOGRAPHICAL_INFO
+SP2-0042: unknown command "UNION ALL" - rest of line ignored.
+Help: https://docs.oracle.com/error-help/db/sp2-0042/
+
+'HOUSEHOLDS'            COUNT(*)
+--------------------- ----------
+Households                     0
+Individuals                    0
+Housing                        0
+Economic Activity              0
+Fertility                      0
+Disability                     0
+Agricultural Activity          0
+
+7 rows selected.
+
+
+Census Sample Data Created Successfully!
+>
+---------------------------------------
+SQL> @sql\sample_data\oracle_sample_data.sql
+Cleaning up existing data...
+
+PL/SQL procedure successfully completed.
+
+Resetting sequences...
+
+PL/SQL procedure successfully completed.
+
+Inserting Geographical Information...
+INSERT INTO GEOGRAPHICAL_INFO (geo_info_id, region_name, district_name, locality_name, enumeration_area_code) VALUES (seq_geo_info_id.NEXTVAL, 'Greater Accra', 'Accra Metropolis', 'Osu', 'GA-001-001')
+                               *
+ERROR at line 1:
+ORA-00904: "GEO_INFO_ID": invalid identifier
+Help: https://docs.oracle.com/error-help/db/ora-00904/
+
+
+INSERT INTO GEOGRAPHICAL_INFO (geo_info_id, region_name, district_name, locality_name, enumeration_area_code) VALUES (seq_geo_info_id.NEXTVAL, 'Ashanti', 'Kumasi Metropolis', 'Adum', 'AS-001-001')
+                               *
+ERROR at line 1:
+ORA-00904: "GEO_INFO_ID": invalid identifier
+Help: https://docs.oracle.com/error-help/db/ora-00904/
+
+
+INSERT INTO GEOGRAPHICAL_INFO (geo_info_id, region_name, district_name, locality_name, enumeration_area_code) VALUES (seq_geo_info_id.NEXTVAL, 'Western', 'Sekondi-Takoradi Metropolis', 'Takoradi', 'WR-001-001')
+                               *
+ERROR at line 1:
+ORA-00904: "GEO_INFO_ID": invalid identifier
+Help: https://docs.oracle.com/error-help/db/ora-00904/
+
+
+Inserting Households and all related data...
+    SELECT geo_info_id INTO v_geo_id_1 FROM GEOGRAPHICAL_INFO WHERE enumeration_area_code = 'GA-001-001';
+           *
+ERROR at line 8:
+ORA-06550: line 8, column 12:
+PL/SQL: ORA-00904: "GEO_INFO_ID": invalid identifier
+ORA-06550: line 8, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 9, column 12:
+PL/SQL: ORA-00904: "GEO_INFO_ID": invalid identifier
+ORA-06550: line 9, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 15, column 52:
+PL/SQL: ORA-00904: "HOUSING_UNIT_STATUS": invalid identifier
+ORA-06550: line 15, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 25, column 77:
+PL/SQL: ORA-00904: "CHILDREN_SURVIVING": invalid identifier
+ORA-06550: line 25, column 5:
+PL/SQL: SQL Statement ignored
+ORA-06550: line 29, column 52:
+PL/SQL: ORA-00904: "HOUSING_UNIT_STATUS": invalid identifier
+ORA-06550: line 29, column 5:
+PL/SQL: SQL Statement ignored
+Help: https://docs.oracle.com/error-help/db/ora-06550/
+
+
+
+Commit complete.
+
+
+Sample Data Insertion Summary:
+--------------------------------------- SELECT 'Geographical Info' AS table_name, COUNT(*) AS record_count FROM GEOGRAPHICAL_INFO
+SP2-0042: unknown command "UNION ALL" - rest of line ignored.
+Help: https://docs.oracle.com/error-help/db/sp2-0042/
+
+'HOUSEHOLDS'            COUNT(*)
+--------------------- ----------
+Households                     0
+Individuals                    0
+Housing                        0
+Economic Activity              0
+Fertility                      0
+Disability                     0
+Agricultural Activity          0
+
+7 rows selected.
+
+
+Census Sample Data Created Successfully!
